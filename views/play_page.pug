@@ -1,0 +1,30 @@
+head
+  style
+    include ./play_page_stylesheet.css
+  title Connect 4
+.navbar
+  #title Connect 4
+  #play_dropdown
+    button#play_btn Play
+    #play_content
+      a(href='/findGame/public') Public
+      a(href='/findGame/friendsOnly') Friends-Only
+      a(href='/findGame/private') Private
+  #friends_dropdown
+    button#friends_btn Friends
+    #friends_content
+      a(href='/friends') Friends List
+      a(href='/search') Search For User
+  a(href='/users/' + session.username) Profile
+  a#logout_btn(href='/logOutUser') Log Out
+#main_content
+  #start_new_game
+    div Start New Game
+    button#public_game_btn Public
+    button#private_game_btn Private
+  #game
+    div Playing Against: User1
+    #game_screen
+  #current_games
+    div Current Games
+    #list_of_games

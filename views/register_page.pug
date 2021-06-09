@@ -1,0 +1,17 @@
+head
+  style
+    include ./register_page_stylesheet.css
+  title Connect 4
+div
+  h1 Connect 4
+form#register_box(action='/registerUser', method='post')
+  div
+    | Username
+    input#username_field(name='username' required)
+  br
+  div
+    | Password
+    input#password_field(name='password' required)
+  br
+  div
+    button#register_btn(type='submit') Register

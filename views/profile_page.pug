@@ -1,0 +1,55 @@
+head
+  style
+    include ./profile_page_stylesheet.css
+  title Connect 4
+.navbar
+  #title Connect 4
+  #play_dropdown
+    button#play_btn Play
+    #play_content
+      a(href='/findGame/public') Public
+      a(href='/findGame/friendsOnly') Friends-Only
+      a(href='/findGame/private') Private
+  #friends_dropdown
+    button#friends_btn Friends
+    #friends_content
+      a(href='/friends') Friends List
+      a(href='/search') Search For User
+  a(href='/users/' + session.username) Profile
+  a#logout_btn(href='/logOutUser') Log Out
+#main_content
+  div
+    | !{user.username}'s Profile
+    if(showReqBtn)
+      form(action='/sendRequest/' + user.username, method='post')
+        button#add_friend_btn(type="submit") Send Friend Request
+        if(sent)
+          div#sent_header=sent
+    if(showRemoveBtn)
+      form(action='/removeFriend/' + user.username, method='post')
+        button#remove_friend_btn(type="submit") Remove As Friend
+    br
+    #wins_and_losses
+      | Total Games: !{user.wins + user.losses + user.draws}
+      br
+      | Wins: !{user.wins}
+      br
+      | Losses: !{user.losses}
+      br
+      | Draws: !{user.draws}
+      br
+      | Win Percentage: !{percent}
+    if(showPrivBtn)
+      | Set Privacy Level
+      form(action='/setPrivacy/public', method='post')
+        button#status_public_btn(type="submit") Public
+        br
+      form(action='/setPrivacy/private', method='post')
+        button#status_private_btn(type="submit") Private
+  #completed_games_box
+    | List of the Last 5 Games
+    div#games_box
+      ul#games_box_content
+        each game in games
+          a(href="/games/" + game.id)= "Game: " + game.id
+          br

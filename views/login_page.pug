@@ -1,0 +1,24 @@
+head
+  style
+    include ./login_page_stylesheet.css
+  title Connect 4
+div
+  h1 Connect 4
+form#sign_in_box(action='/loginUser', method='post')
+  div
+    h2 Sign In
+  div Username
+  div
+    input#username_field(name='username' required)
+  br
+  div Password
+  div
+    input#password_field(name='password' required)
+    if(incorrect)
+      h6="Your " + incorrect + " is incorrect."
+  br
+  div
+    button#sign_in_btn(type='submit') Sign In
+  #register_text
+    | Don&apos;t have an account: 
+    a(href='/register') Register

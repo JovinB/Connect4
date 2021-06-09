@@ -1,0 +1,302 @@
+head
+  style
+    include ./game_page_stylesheet.css
+  title Connect Four
+.navbar
+  #title Connect 4
+  #play_dropdown
+    button#play_btn Play
+    #play_content
+      a(href='/findGame/public') Public
+      a(href='/findGame/friendsOnly') Friends-Only
+      a(href='/findGame/private') Private
+  #friends_dropdown
+    button#friends_btn Friends
+    #friends_content
+      a(href='/friends') Friends List
+      a(href='/search') Search For User
+  a(href='/users/' + session.username) Profile
+  a#logout_btn(href='/logOutUser') Log Out
+#main_content
+  if(active == true)
+    h3
+    | It is 
+    span#current-player=player
+    | &apos;s Turn
+  if(active == false)
+    h3="The winner is: " + game.winner
+  h3 Player 1:
+  a(href="/users/" + game.player1)= game.player1
+  h3 Player 2:
+  a(href="/users/" + game.player2)= game.player2
+  .grid
+    if(board[0] == 0)
+      div 1
+    if(board[0] == 1)
+      .player1
+    if(board[0] == 2)
+      .player2
+    if(board[1] == 0)
+      div 2
+    if(board[1] == 1)
+      .player1
+    if(board[1] == 2)
+      .player2
+    if(board[2] == 0)
+      div 3
+    if(board[2] == 1)
+      .player1
+    if(board[2] == 2)
+      .player2
+    if(board[3] == 0)
+      div 4
+    if(board[3] == 1)
+      .player1
+    if(board[3] == 2)
+      .player2
+    if(board[4] == 0)
+      div 5
+    if(board[4] == 1)
+      .player1
+    if(board[4] == 2)
+      .player2
+    if(board[5] == 0)
+      div 6
+    if(board[5] == 1)
+      .player1
+    if(board[5] == 2)
+      .player2
+    if(board[6] == 0)
+      div 7
+    if(board[6] == 1)
+      .player1
+    if(board[6] == 2)
+      .player2
+    if(board[7] == 0)
+      div 8
+    if(board[7] == 1)
+      .player1
+    if(board[7] == 2)
+      .player2
+    if(board[8] == 0)
+      div 9
+    if(board[8] == 1)
+      .player1
+    if(board[8] == 2)
+      .player2
+    if(board[9] == 0)
+      div 10
+    if(board[9] == 1)
+      .player1
+    if(board[9] == 2)
+      .player2
+    if(board[10] == 0)
+      div 11
+    if(board[10] == 1)
+      .player1
+    if(board[10] == 2)
+      .player2
+    if(board[11] == 0)
+      div 12
+    if(board[11] == 1)
+      .player1
+    if(board[11] == 2)
+      .player2
+    if(board[12] == 0)
+      div 13
+    if(board[12] == 1)
+      .player1
+    if(board[12] == 2)
+      .player2
+    if(board[13] == 0)
+      div 14
+    if(board[13] == 1)
+      .player1
+    if(board[13] == 2)
+      .player2
+    if(board[14] == 0)
+      div 15
+    if(board[14] == 1)
+      .player1
+    if(board[14] == 2)
+      .player2
+    if(board[15] == 0)
+      div 16
+    if(board[15] == 1)
+      .player1
+    if(board[15] == 2)
+      .player2
+    if(board[16] == 0)
+      div 17
+    if(board[16] == 1)
+      .player1
+    if(board[16] == 2)
+      .player2
+    if(board[17] == 0)
+      div 18
+    if(board[17] == 1)
+      .player1
+    if(board[17] == 2)
+      .player2
+    if(board[18] == 0)
+      div 19
+    if(board[18] == 1)
+      .player1
+    if(board[18] == 2)
+      .player2
+    if(board[19] == 0)
+      div 20
+    if(board[19] == 1)
+      .player1
+    if(board[19] == 2)
+      .player2
+    if(board[20] == 0)
+      div 21
+    if(board[20] == 1)
+      .player1
+    if(board[20] == 2)
+      .player2
+    if(board[21] == 0)
+      div 22
+    if(board[21] == 1)
+      .player1
+    if(board[21] == 2)
+      .player2
+    if(board[22] == 0)
+      div 23
+    if(board[22] == 1)
+      .player1
+    if(board[22] == 2)
+      .player2
+    if(board[23] == 0)
+      div 24
+    if(board[23] == 1)
+      .player1
+    if(board[23] == 2)
+      .player2
+    if(board[24] == 0)
+      div 25
+    if(board[24] == 1)
+      .player1
+    if(board[24] == 2)
+      .player2
+    if(board[25] == 0)
+      div 26
+    if(board[25] == 1)
+      .player1
+    if(board[25] == 2)
+      .player2
+    if(board[26] == 0)
+      div 27
+    if(board[26] == 1)
+      .player1
+    if(board[26] == 2)
+      .player2
+    if(board[27] == 0)
+      div 28
+    if(board[27] == 1)
+      .player1
+    if(board[27] == 2)
+      .player2
+    if(board[28] == 0)
+      div 29
+    if(board[28] == 1)
+      .player1
+    if(board[28] == 2)
+      .player2
+    if(board[29] == 0)
+      div 30
+    if(board[29] == 1)
+      .player1
+    if(board[29] == 2)
+      .player2
+    if(board[30] == 0)
+      div 31
+    if(board[30] == 1)
+      .player1
+    if(board[30] == 2)
+      .player2
+    if(board[31] == 0)
+      div 32
+    if(board[31] == 1)
+      .player1
+    if(board[31] == 2)
+      .player2
+    if(board[32] == 0)
+      div 33
+    if(board[32] == 1)
+      .player1
+    if(board[32] == 2)
+      .player2
+    if(board[33] == 0)
+      div 34
+    if(board[33] == 1)
+      .player1
+    if(board[33] == 2)
+      .player2
+    if(board[34] == 0)
+      div 35
+    if(board[34] == 1)
+      .player1
+    if(board[34] == 2)
+      .player2
+    if(board[35] == 0)
+      div 36
+    if(board[35] == 1)
+      .player1
+    if(board[35] == 2)
+      .player2
+    if(board[36] == 0)
+      div 37
+    if(board[36] == 1)
+      .player1
+    if(board[36] == 2)
+      .player2
+    if(board[37] == 0)
+      div 38
+    if(board[37] == 1)
+      .player1
+    if(board[37] == 2)
+      .player2
+    if(board[38] == 0)
+      div 39
+    if(board[38] == 1)
+      .player1
+    if(board[38] == 2)
+      .player2
+    if(board[39] == 0)
+      div 40
+    if(board[39] == 1)
+      .player1
+    if(board[39] == 2)
+      .player2
+    if(board[40] == 0)
+      div 41
+    if(board[40] == 1)
+      .player1
+    if(board[40] == 2)
+      .player2
+    if(board[41] == 0)
+      div 42
+    if(board[41] == 1)
+      .player1
+    if(board[41] == 2)
+      .player2
+  br
+  if(active == true)
+    if(player == session.username && game.waiting == false)
+      form#search(action='/makeMove/' + game.id, method='post')
+        div
+        #move_text
+          | Enter your move (1-42):
+        input#move_field(name='move' required)
+        button#move_btn(type="submit") Make Move
+      br
+  if(invalid)
+    div=message
+  if(active == true)
+    if(player != session.username || game.waiting == true)
+      form#update(action='/updateGame/' + game.id, method='post')
+        div Click this button to update the game and see if your opponent has played their move
+        div Or if you are waiting for an opponent, update to see if they have arrived
+        button#update_btn(type="submit") Update Game

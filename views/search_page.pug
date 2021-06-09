@@ -1,0 +1,33 @@
+head
+  style
+    include ./search_page_stylesheet.css
+  title Connect 4
+.navbar
+  #title Connect 4
+  #play_dropdown
+    button#play_btn Play
+    #play_content
+      a(href='/findGame/public') Public
+      a(href='/findGame/friendsOnly') Friends-Only
+      a(href='/findGame/private') Private
+  #friends_dropdown
+    button#friends_btn Friends
+    #friends_content
+      a(href='/friends') Friends List
+      a(href='/add_friend') Add Friend
+  a(href='/users/' + session.username) Profile
+  a#logout_btn(href='/logOutUser') Log Out
+form#search(action='/searchUser', method='post')
+  div
+    #username_text
+      | Enter Username:
+      input#user_search_field(name='keyword')
+    button#search_btn(type="submit") Search
+    br
+    br
+    div#users_box
+      ul
+        if(users)
+          each user in users
+            a(href="/users/" + user.username)= user.username
+            br
