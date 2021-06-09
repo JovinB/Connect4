@@ -1,0 +1,38 @@
+head
+  style
+    include ./friends_page_stylesheet.css
+  title Connect 4
+.navbar
+  #title Connect 4
+  #play_dropdown
+    button#play_btn Play
+    #play_content
+      a(href='/findGame/public') Public
+      a(href='/findGame/friendsOnly') Friends-Only
+      a(href='/findGame/private') Private
+  #friends_dropdown
+    button#friends_btn Friends
+    #friends_content
+      a(href='/friends') Friends List
+      a(href='/search') Search For User
+  a(href='/users/' + session.username) Profile
+  a#logout_btn(href='/logOutUser') Log Out
+#main_content
+  #friends
+    | Friends
+    div#friends_box
+      ul#friends_box_content
+        each user in friends
+          a(href="/users/" + user.username)= user.username
+          br
+  #friend_requests
+    | Pending Friend Requests
+    div#friend_requests_box
+      ul#friend_requests_box_content
+        each request in requests
+          div="Request from " + request.username
+          form(action='/acceptRequest/' + request.username, method='post')
+            button(type="submit") Accept
+          form(action='/declineRequest/' + request.username, method='post')
+            button(type="submit") Decline
+          br
